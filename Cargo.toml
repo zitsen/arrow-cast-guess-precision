@@ -1,0 +1,22 @@
+[package]
+name = "arrow-cast-guess-precision"
+edition = "2021"
+version = "0.1.0"
+authors = ["Linhe Huo <linhe.huo@gmail.com>"]
+description = "Arrow cast function alternative with timestamp integer guessing precision"
+keywords = ["arrow", "cast", "timestamp", "integer", "precision"]
+license = "MIT"
+repository = "https://github.com/zitsen/arrow-cast-guess-precision.git"
+readme = "README.md"
+homepage = "https://github.com/zitsen/arrow-cast-guess-precision"
+documentation = "https://docs.rs/arrow-cast-guess-precision"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+arrow-cast = ">30"
+arrow-schema = ">30"
+arrow-array = ">30"
+
+[dev-dependencies]
+chrono = "0.4"

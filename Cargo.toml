@@ -1,7 +1,7 @@
 [package]
 name = "arrow-cast-guess-precision"
 edition = "2021"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["Linhe Huo <linhe.huo@gmail.com>"]
 description = "Arrow cast function alternative with timestamp integer guessing precision"
 keywords = ["arrow", "cast", "timestamp", "integer", "precision"]

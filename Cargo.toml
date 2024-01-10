@@ -14,9 +14,12 @@ documentation = "https://docs.rs/arrow-cast-guess-precision"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-arrow-cast = "48"
-arrow-schema = "48"
-arrow-array = "48"
+arrow-cast = "49"
+arrow-schema = "49"
+arrow-array = "49"
 
 [dev-dependencies]
 chrono = "0.4"
+arrow = "49"
+
+[build-dependencies]

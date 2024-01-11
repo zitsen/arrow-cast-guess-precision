@@ -1,6 +1,6 @@
 //! Cast integer to timestamp with precision guessing options.
 //!
-//! just replace [arrow::cast] with [arrow_cast_guess_precision::cast] and everything done.
+//! Just replace [arrow::compute::cast] with [arrow_cast_guess_precision::cast] and everything done.
 //!
 //! ```rust
 //! use arrow::{
@@ -22,12 +22,12 @@
 //! assert_eq!(nanos.value(0), 1701325744956 * 1000 * 1000);
 //! ```
 //!
-//! the difference to official [arrow::cast] is that:
+//! The difference to official [arrow::compute::cast] is that:
 //!
 //! - arrow v49 will cast integer directly to timestamp, but this crate(`arrow-cast-guess-precision = "0.3.0"`) will try to guess from the value.
 //! - arrow v48 does not support casting from integers to timestamp (`arrow-cast-guess-precision = "0.2.0"`).
 //!
-//! the guessing method is:
+//! The guessing method is:
 //!
 //! ```rust
 //! use arrow::datatypes::TimeUnit;
@@ -53,7 +53,7 @@
 //! }
 //! ```
 //!
-//! users could set `ARROW_CAST_GUESSING_BOUND_YEARS` environment at build-time to control the guessing bound.
+//! Users could set `ARROW_CAST_GUESSING_BOUND_YEARS` environment at build-time to control the guessing bound.
 //! here is a sample list based on individual environment values:
 //!
 //! |    value | lower bound             |       Upper Bound       |
@@ -66,11 +66,11 @@
 //! |     5000 | 1974-12-31t00:00:00     |   6966-09-06T00:00:00   |
 //! |    10000 | 1979-12-30t00:00:00     |  +11963-05-13T00:00:00  |
 //!
-//! we use `ARROW_CAST_GUESSING_BOUND_YEARS=1000` by default, just because `1000` milliseconds is `1` second so that the lower bound starts with `1971-01-01T00:00:00` which is one year after ZERO unix timestamp, and the upper bound is enough (even 100-years is enough though).
+//! We use `ARROW_CAST_GUESSING_BOUND_YEARS=1000` by default, just because `1000` milliseconds is `1` second so that the lower bound starts with `1971-01-01T00:00:00` which is one year after ZERO unix timestamp, and the upper bound is enough (even 100-years is enough though).
 //!
-//! Like [arrow::cast], this crate also supports casting with specific options, checkout [CastOptions](arrow_cast_guess_precision::CastOptions).
+//! Like [arrow::compute::cast], this crate also supports casting with specific options, checkout [CastOptions](arrow_cast_guess_precision::CastOptions).
 //!
-//! [arrow::cast]: https://docs.rs/arrow/latest/arrow/compute/fn.cast.html
+//! [arrow::compute::cast]: https://docs.rs/arrow/latest/arrow/compute/fn.cast.html
 //! [arrow_cast_guess_precision::cast]: https://docs.rs/arrow-cast-guess-precision/latest/arrow_cast_guess_precision/fn.cast.html
 
 use arrow_array::{make_array, new_empty_array, new_null_array, Array, ArrayRef, Int64Array};
